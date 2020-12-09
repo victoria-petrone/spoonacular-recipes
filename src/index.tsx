@@ -1,4 +1,6 @@
 import React from "react";
+import "regenerator-runtime/runtime.js";
+
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./styles.css";
