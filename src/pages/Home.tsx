@@ -1,10 +1,38 @@
 import React, { useState } from "react";
+import getComplexSearch from "../services/complexSearch";
+import RecipeList from "../components/RecipeList";
 
-import Recipe from "../components/Recipe";
+interface IPagination {
+  number: number;
+  offset: number;
+  totalResults: number;
+}
 
-function Home() {
+export interface IRecipe {
+  id: number;
+  image: string;
+  title: string;
+}
+
+const Home = () => {
   const [userInput, setUserInput] = useState("");
-  const [userNumber, setUserNumber] = useState("");
+  const [userNumber, setUserNumber] = useState<number>(10);
+  const [recipes, setRecipes] = useState<IRecipe[]>([]);
+  const [pagination, setPagination] = useState<IPagination>();
+
+  const handleSubmit = async () => {
+    const response = await getComplexSearch({
+      query: userInput,
+      number: userNumber,
+    });
+    setRecipes(response.results);
+    setPagination({
+      number: response.number,
+      offset: response.offset,
+      totalResults: response.totalResults,
+    });
+  };
+
   return (
     <div>
       <input
@@ -13,15 +41,18 @@ function Home() {
       />
       <input
         type="number"
-        onChange={(e) => setUserNumber(e.currentTarget.value)}
+        onChange={(e) => setUserNumber(parseInt(e.currentTarget.value))}
       />
-      <button className="button-hover" disabled={!userInput.length}>
+      <button
+        onClick={handleSubmit}
+        className="button-hover"
+        disabled={!userInput.length}
+      >
         Search
       </button>
-
-      <Recipe />
+      <RecipeList recipes={recipes} />
     </div>
   );
-}
+};
 
 export default Home;

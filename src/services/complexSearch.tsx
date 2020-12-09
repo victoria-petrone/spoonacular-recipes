@@ -2,6 +2,7 @@ import axios from "axios";
 
 interface IComplexSearchConfig {
   query: string;
+  number: number;
 }
 
 const key: string = "0d0b04ebf0cd4c9a8820941daaf1f364";
