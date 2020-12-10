@@ -34,6 +34,7 @@ const Home = () => {
   };
 
   return (
+    //add className
     <div>
       <input
         type="text"

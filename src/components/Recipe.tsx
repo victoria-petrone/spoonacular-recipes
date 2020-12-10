@@ -1,36 +1,17 @@
-import React, { useState, useEffect } from "react";
-/* import { Link } from "react-router-dom";
- */
-import getComplexSearch from "../services/complexSearch";
-interface IRecipe {
-  id: number;
-  title: string;
-  image: string;
+import React from "react";
+import { IRecipe } from "../pages/Home";
+
+interface IRecipeArti {
+  recipe: IRecipe;
 }
 
-function Recipe() {
-  const [listOfRecipes, setListOfRecipes] = useState<IRecipe[]>([]);
-
-  console.log(listOfRecipes);
-  useEffect(() => {
-    const results = getComplexSearch({ query: "pasta" });
-  }, []);
-
-  if (!listOfRecipes.length) {
-    return <p>No recipes found</p>;
-  }
-  const list = listOfRecipes.map((recipe) => (
-    <div key={recipe.id}>
-      <h1>{recipe.title}</h1>
-      <img src={recipe.image} />
-    </div>
-  ));
+const RecipeArtic = (props: IRecipeArti) => {
   return (
-    <div>
-      <p>WELCOMEEE to all the recipes that we offer</p>
-      {list}
-    </div>
+    <li>
+      <h1>{props.recipe.title}</h1>
+      <img src={props.recipe.image} />
+    </li>
   );
-}
+};
 
-export default Recipe;
+export default RecipeArtic;
