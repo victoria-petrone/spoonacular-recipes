@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div>
-      <Link to="/">All Recipes</Link>
-      <Link to="/favorite">My Favorites</Link>
+    <div className="header-component">
+      <Link to="/" className="header-links">
+        All Recipes
+      </Link>
+      <Link to="/favorite" className="header-links">
+        My Favorites
+      </Link>
     </div>
   );
 }
