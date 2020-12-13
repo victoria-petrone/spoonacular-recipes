@@ -34,13 +34,16 @@ const Home = () => {
   };
 
   return (
-    //add className
-    <div>
+    <div className="inputs-container">
       <input
+        placeholder="What do you wanna eat?"
+        className="input-element"
         type="text"
         onChange={(e) => setUserInput(e.currentTarget.value)}
       />
       <input
+        placeholder="How many options?"
+        className="input-element"
         type="number"
         onChange={(e) => setUserNumber(parseInt(e.currentTarget.value))}
       />
