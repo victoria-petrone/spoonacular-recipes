@@ -30,6 +30,7 @@ module.exports = {
   output: {
     filename: "js/bundle.js",
     path: path.resolve(__dirname, "build"),
+    publicPath: "/",
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -41,6 +42,7 @@ module.exports = {
     contentBase: path.join(__dirname, "build"),
     compress: true,
     port: 3000,
+    historyApiFallback: true,
     stats: {
       colors: true,
       hash: false,
