@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { IRecipe } from "../pages/Home";
+import { Link } from "react-router-dom";
+import { getRecipeInformation } from "../services/complexSearch";
 
-interface IRecipeArti {
+interface IRecipeItem {
   recipe: IRecipe;
 }
 
-const RecipeArtic = (props: IRecipeArti) => {
+const RecipeItem = (props: IRecipeItem) => {
   return (
     <li>
       <h1>{props.recipe.title}</h1>
-      <img src={props.recipe.image} />
+      <h2>{props.recipe.id}</h2>
+      <Link to={`/${props.recipe.id}`}>
+        <img src={props.recipe.image} />
+      </Link>
     </li>
   );
 };
 
-export default RecipeArtic;
+export default RecipeItem;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import getComplexSearch from "../services/complexSearch";
+import { getComplexSearch } from "../services/complexSearch";
 import RecipeList from "../components/RecipeList";
 
 interface IPagination {
