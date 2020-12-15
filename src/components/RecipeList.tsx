@@ -1,6 +1,6 @@
 import React from "react";
 import { IRecipe } from "../pages/Home";
-import RecipeArtic from "./Recipe";
+import RecipeItem from "./Recipe";
 
 interface IRecipeListProps {
   recipes: IRecipe[];
@@ -11,7 +11,7 @@ const RecipeList = (props: IRecipeListProps) => {
     <div>
       <ul>
         {props.recipes.map((recipe) => (
-          <RecipeArtic key={recipe.id} recipe={recipe} />
+          <RecipeItem key={recipe.id} recipe={recipe} />
         ))}
       </ul>
     </div>
