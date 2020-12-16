@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/header";
-import Details from "./pages/Details";
-import Favorite from "./pages/Favorite";
-import Home from "./pages/Home";
+import Details from "./pages/details";
+import Favorite from "./pages/favorite";
+import Home from "./pages/home";
 import About from "./pages/about";
 
 const App = () => {

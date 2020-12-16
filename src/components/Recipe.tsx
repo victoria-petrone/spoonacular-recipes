@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IRecipe } from "../pages/Home";
+import { IRecipe } from "../pages/home";
 import { Link } from "react-router-dom";
 import { getRecipeInformation } from "../services/complexSearch";
 

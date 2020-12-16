@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
-import { getRecipeInformation } from "../services/complexSearch";
+import { getRecipeInformation } from "../../services/complexSearch";
 
 interface IStep {
   length: { number: number; unit: string };
