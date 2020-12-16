@@ -1,5 +1,5 @@
 import React from "react";
-import { IRecipe } from "../pages/Home";
+import { IRecipe } from "../pages/home";
 import RecipeItem from "./Recipe";
 
 interface IRecipeListProps {
