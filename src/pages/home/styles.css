@@ -29,7 +29,7 @@
   border-bottom-left-radius: 9px;
   border-top-left-radius: 9px;
   flex: 1;
-  min-width: 80px;
+  min-width: 70px;
   font-size: 22px;
 }
 .input-element:focus {
@@ -53,6 +53,11 @@
 @media only screen and (max-width: 450px) {
   .submit-button,
   .input-element {
-    font-size: 16px;
+    font-size: 14px;
+    height: 30px;
+  }
+  .image-container,
+  .image-container img {
+    height: 250px;
   }
 }

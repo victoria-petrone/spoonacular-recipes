@@ -1,37 +1,14 @@
 import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { getComplexSearch } from "../../services/complexSearch";
-import RecipeList from "../../components/RecipeList";
 import "./styles.css";
-
-interface IPagination {
-  number: number;
-  offset: number;
-  totalResults: number;
-}
-
-export interface IRecipe {
-  id: number;
-  image: string;
-  title: string;
-}
 
 const Home = () => {
   const [userInput, setUserInput] = useState("");
-  const [userNumber, setUserNumber] = useState<number>(10);
-  const [recipes, setRecipes] = useState<IRecipe[]>([]);
-  const [pagination, setPagination] = useState<IPagination>();
 
+  const history = useHistory();
   const handleSubmit = async () => {
-    const response = await getComplexSearch({
-      query: userInput,
-      number: userNumber,
-    });
-    setRecipes(response.results);
-    setPagination({
-      number: response.number,
-      offset: response.offset,
-      totalResults: response.totalResults,
-    });
+    history.push(`/search?userInput=${userInput}`);
   };
 
   return (
@@ -61,10 +38,9 @@ const Home = () => {
           >
             Search
           </button>
+          <Link to="/search">Advanced Search</Link>
         </div>
       </div>
-      {/*       <RecipeList recipes={recipes} />
-       */}
     </div>
   );
 };

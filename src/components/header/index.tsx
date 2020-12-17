@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./styles.css";
+//import logo from "./logo1.jpg";
+
+const logo = require("./pngwing.png");
 
 function Header() {
   const { pathname } = useLocation();
@@ -10,6 +13,8 @@ function Header() {
 
   return (
     <div className="header-container">
+      <img src={logo} alt="looogo" className="logo" />
+
       <Link to="/" className={getClassName("/")}>
         Home
       </Link>
