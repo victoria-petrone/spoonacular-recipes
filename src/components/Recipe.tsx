@@ -12,7 +12,7 @@ const RecipeItem = (props: IRecipeItem) => {
     <li>
       <h1>{props.recipe.title}</h1>
       <h2>{props.recipe.id}</h2>
-      <Link to={`/${props.recipe.id}`}>
+      <Link to={`/recipe/${props.recipe.id}`}>
         <img src={props.recipe.image} />
       </Link>
     </li>

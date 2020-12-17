@@ -18,7 +18,7 @@ interface IRecipeDetails {
   analyzedInstructions: Array<{ name: string; steps: Array<IStep> }>;
 }
 
-function Details() {
+const Details = () => {
   const { id } = useParams<{ id: string }>();
   const [recipeDetails, setRecipeDetails] = useState<IRecipeDetails>();
   const summaryRef = useRef<HTMLDivElement>(null);
@@ -80,6 +80,6 @@ function Details() {
       <ul className="instruction-container">{getInstructions()}</ul>
     </div>
   );
-}
+};
 
 export default Details;
