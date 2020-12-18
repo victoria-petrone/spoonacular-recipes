@@ -1,6 +1,7 @@
 import React from "react";
-import { IRecipe } from "../pages/home";
-import RecipeItem from "./Recipe";
+import { IRecipe } from "../../pages/search";
+//import { IRecipe } from "../pages/home";
+import RecipeItem from "../recipe";
 
 interface IRecipeListProps {
   recipes: IRecipe[];
