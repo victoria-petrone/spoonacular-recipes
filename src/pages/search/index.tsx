@@ -4,7 +4,7 @@ import {
   getComplexSearch,
   /*  getRandomRecipes, */
 } from "../../services/complexSearch";
-import RecipeList from "../../components/RecipeList";
+import RecipeList from "../../components/recipeList";
 
 import "./styles.css";
 

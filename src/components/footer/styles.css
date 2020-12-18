@@ -1,0 +1,9 @@
+.footer-component {
+  background-color: #c7a17c;
+  height: 70px;
+  width: 100%;
+}
+
+.footer-component p {
+  margin: 0;
+}

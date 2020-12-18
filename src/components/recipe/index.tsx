@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 //import { IRecipe } from "../pages/home";
 import { Link } from "react-router-dom";
-import { IRecipe } from "../pages/search";
-import { getRecipeInformation } from "../services/complexSearch";
+import { IRecipe } from "../../pages/search";
+import { getRecipeInformation } from "../../services/complexSearch";
 
 interface IRecipeItem {
   recipe: IRecipe;
