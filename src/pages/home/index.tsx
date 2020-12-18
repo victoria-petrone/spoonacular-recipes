@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { getComplexSearch } from "../../services/complexSearch";
 import "./styles.css";
 
 const Home = () => {

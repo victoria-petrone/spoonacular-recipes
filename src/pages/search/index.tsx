@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { getComplexSearch } from "../../services/complexSearch";
+import {
+  getComplexSearch,
+  /*  getRandomRecipes, */
+} from "../../services/complexSearch";
 import RecipeList from "../../components/RecipeList";
 
 import "./styles.css";
@@ -32,6 +34,7 @@ const Search = () => {
           query: userInput,
           number: 10,
         });
+
         setRecipes(response.results);
         setPagination({
           number: response.number,
@@ -39,6 +42,11 @@ const Search = () => {
           totalResults: response.totalResults,
         });
       } else {
+        /* const response = await getRandomRecipes({
+          number: 10,
+          tags: "dessert",
+        });
+        setRecipes(response.recipes); */
       }
     })();
   }, []);
@@ -51,5 +59,3 @@ const Search = () => {
 };
 
 export default Search;
-
-// new URLSearchParams(useLocation().search);
