@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import {
   getComplexSearch,
-  /*  getRandomRecipes, */
-} from "../../services/complexSearch";
+  getRandomRecipes,
+} from "../../services/recipeSearch";
 import RecipeList from "../../components/recipeList";
 
 import "./styles.css";
 
-interface IPagination {
+export interface IPagination {
   number: number;
   offset: number;
   totalResults: number;
@@ -34,28 +34,24 @@ const Search = () => {
           query: userInput,
           number: 10,
         });
-
-        setRecipes(response.results);
-        setPagination({
-          number: response.number,
-          offset: response.offset,
-          totalResults: response.totalResults,
-        });
+        if (response) {
+          setRecipes(response.results);
+          setPagination({
+            number: response.number,
+            offset: response.offset,
+            totalResults: response.totalResults,
+          });
+        }
       } else {
-        /* const response = await getRandomRecipes({
-          number: 10,
-          tags: "dessert",
-        });
-        setRecipes(response.recipes); */
+        const response = await getRandomRecipes();
+        {
+          response && setRecipes(response.recipes);
+        }
       }
     })();
   }, []);
 
-  return (
-    <div>
-      <RecipeList recipes={recipes} />
-    </div>
-  );
+  return <div>{recipes && <RecipeList recipes={recipes} />}</div>;
 };
 
 export default Search;

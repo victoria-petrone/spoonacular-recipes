@@ -1,6 +1,6 @@
 .footer-component {
   background-color: #c7a17c;
-  height: 70px;
+  min-height: 70px;
   width: 100%;
 }
 
