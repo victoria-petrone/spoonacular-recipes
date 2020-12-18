@@ -3,7 +3,7 @@
   flex-wrap: nowrap;
   justify-content: center;
   background-color: #c7a17c;
-  height: 70px;
+  min-height: 70px;
   align-items: center;
 }
 

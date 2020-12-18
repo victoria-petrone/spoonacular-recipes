@@ -1,13 +1,19 @@
 import axios from "axios";
+import { IPagination, IRecipe } from "../pages/search";
 
 interface IComplexSearchConfig {
   query: string;
   number: number;
 }
-interface IRandomSearch {
-  number: number;
-  tags: string;
+
+interface IComplexResponse extends IPagination {
+  results: IRecipe[];
 }
+
+interface IRandomResponse {
+  recipes: IRecipe[];
+}
+
 const key: string = "0d0b04ebf0cd4c9a8820941daaf1f364";
 
 const urlComplex =
@@ -17,16 +23,18 @@ const getDetailsURL = (id: string) => {
   return `https://api.spoonacular.com/recipes/${id}/information?apiKey=${key}`;
 };
 
-/* const urlRandom =
-  "https://api.spoonacular.com/recipes/random?number=1&tags=vegetarian&apiKey=" +
-  key; */
+const urlRandom =
+  "https://api.spoonacular.com/recipes/random?number=8&tags=vegetarian&apiKey=" +
+  key;
 
-export const getComplexSearch = async (config: IComplexSearchConfig) => {
+export const getComplexSearch = async (
+  config: IComplexSearchConfig
+): Promise<IComplexResponse | undefined> => {
   try {
     const response = await axios.get(urlComplex, {
       params: config,
     });
-    return console.log(response.data);
+    return response.data;
   } catch (error) {
     console.error(error);
   }
@@ -42,14 +50,13 @@ export const getRecipeInformation = async (id: string) => {
   }
 };
 
-/* export const getRandomRecipes = async (configs: IRandomSearch) => {
+export const getRandomRecipes = async (): Promise<
+  IRandomResponse | undefined
+> => {
   try {
-    const response = await axios.get(urlRandom, {
-      params: configs,
-    });
-    return console.log(response.data);
+    const response = await axios.get(urlRandom);
+    return response.data;
   } catch (error) {
     console.log(error);
   }
 };
- */
