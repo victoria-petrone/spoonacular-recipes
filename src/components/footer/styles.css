@@ -2,8 +2,22 @@
   background-color: #c7a17c;
   min-height: 70px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer-component p {
   margin: 0;
+  color: #655252;
+}
+.social-network-container {
+  padding: 10px 0;
+}
+.social-network-container a {
+  height: 10px;
+  text-decoration: none;
+  margin: 5px;
+  font-size: 1.5em;
+  color: white;
 }
