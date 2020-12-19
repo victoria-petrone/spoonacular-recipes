@@ -6,6 +6,13 @@ const Home = () => {
   const [userInput, setUserInput] = useState("");
 
   const history = useHistory();
+
+  const handleKeypress = (e) => {
+    if (e.keyCode === 13) {
+      handleSubmit();
+    }
+  };
+
   const handleSubmit = async () => {
     history.push(`/search?userInput=${userInput}`);
   };
@@ -20,6 +27,7 @@ const Home = () => {
         <div className="inputs-link-container">
           <div className="input-button-container">
             <input
+              onKeyDown={(e) => handleKeypress(e)}
               placeholder="Hungry?"
               className="input-element"
               type="text"
