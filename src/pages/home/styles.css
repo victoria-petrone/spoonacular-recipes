@@ -10,21 +10,24 @@
   height: 550px;
 }
 
-.inputs-container {
-  background-color: #ffffffb3;
+.inputs-link-container {
   z-index: 1;
   margin: auto;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   display: flex;
   flex-wrap: nowrap;
   width: 60%;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
+  flex-direction: column;
 }
 
+.input-button-container {
+  display: flex;
+  margin-bottom: 23px;
+}
 .input-element {
+  background-color: #ffffffb3;
   height: 50px;
-  margin-right: 16px;
-  background-color: #ffffff00;
   border: none;
   border-bottom-left-radius: 9px;
   border-top-left-radius: 9px;
@@ -32,15 +35,17 @@
   min-width: 70px;
   font-size: 22px;
 }
+
 .input-element:focus {
   outline: none;
 }
+
 .submit-button {
-  height: 50px;
+  background-color: #ffffffb3;
+  height: 52px;
   border-bottom-right-radius: 9px;
   border-top-right-radius: 9px;
   border: none;
-  background-color: #ffffff00;
   font-size: 22px;
 }
 .submit-button:hover {
@@ -50,14 +55,47 @@
   outline: none;
 }
 
+.link-container {
+  height: 30px;
+  width: 130px;
+  background-color: #ffffffb3;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(99, 99, 99);
+  align-self: center;
+}
+
+.link-container a {
+  text-decoration: none;
+  margin-left: 4px;
+  color: black;
+  font-family: system-ui;
+}
+
+.link-container a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: black;
+}
+
 @media only screen and (max-width: 450px) {
-  .submit-button,
   .input-element {
     font-size: 14px;
     height: 30px;
   }
+  .submit-button {
+    font-size: 14px;
+    height: 32px;
+  }
   .image-container,
   .image-container img {
     height: 250px;
+  }
+  .link-container {
+    font-size: 9px;
+    height: 20px;
+    width: 76px;
   }
 }
