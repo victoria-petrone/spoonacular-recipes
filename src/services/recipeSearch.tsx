@@ -14,7 +14,8 @@ interface IRandomResponse {
   recipes: IRecipe[];
 }
 
-const key: string = "0d0b04ebf0cd4c9a8820941daaf1f364";
+/* const key: string = "0d0b04ebf0cd4c9a8820941daaf1f364";
+ */ const key: string = "6b5e835d093a4825b6f91e07e8970e5d";
 
 const urlComplex =
   "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + key;
