@@ -5,6 +5,7 @@
   background-color: #c7a17c;
   min-height: 70px;
   align-items: center;
+  justify-content: space-between;
 }
 
 .nav-link {
@@ -26,15 +27,35 @@
   text-decoration: underline;
 }
 
+.logo {
+  height: 74px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.social-network-container {
+  margin-right: 15px;
+}
+.social-network-container a {
+  height: 10px;
+  text-decoration: none;
+  margin: 5px;
+  font-size: 1.5em;
+  color: white;
+}
+
 @media only screen and (max-width: 450px) {
   .nav-link,
   .nav-link-active {
     font-size: 16px;
     margin: 0 5px;
   }
-}
-.logo {
-  height: 74px;
-  position: absolute;
-  left: 0px;
+  .logo {
+    height: 50px;
+    top: 10px;
+  }
+  .links-container {
+    margin-left: 10px;
+  }
 }
