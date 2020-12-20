@@ -19,4 +19,5 @@ body {
 
 .body-container {
   flex: 1;
+  background-color: #ddf1f5;
 }

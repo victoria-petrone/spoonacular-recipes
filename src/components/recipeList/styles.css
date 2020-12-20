@@ -1,0 +1,30 @@
+.recipes-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px;
+}
+.recipe-container {
+  background-color: white;
+  margin: 10px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+}
+
+.recipe-container img {
+  width: 100%;
+  height: 80%;
+}
+.recipe-container h1 {
+  font-family: sans-serif;
+  font-size: 23px;
+  color: #805647;
+  text-align: center;
+}
+.recipe-container a {
+  text-decoration: none;
+}
+.recipe-container h1:hover {
+  text-decoration: underline;
+}
