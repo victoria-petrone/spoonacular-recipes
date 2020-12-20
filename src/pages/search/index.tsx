@@ -32,7 +32,7 @@ const Search = () => {
       if (userInput) {
         const response = await getComplexSearch({
           query: userInput,
-          number: 10,
+          number: 20,
         });
         if (response) {
           setRecipes(response.results);

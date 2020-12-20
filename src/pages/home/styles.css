@@ -1,5 +1,5 @@
 .image-container {
-  height: 550px;
+  height: 684px;
   display: flex;
   flex-direction: column;
 }
@@ -7,7 +7,7 @@
 .image-container img {
   position: absolute;
   top: 70px;
-  height: 550px;
+  height: 83%;
 }
 
 .inputs-link-container {
