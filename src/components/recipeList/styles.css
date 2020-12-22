@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 30px;
+  justify-content: center;
 }
 .recipe-container {
   background-color: white;
@@ -10,21 +11,44 @@
   display: flex;
   flex-direction: column;
   height: 350px;
+  border: 3px solid #c7a17c;
 }
 
 .recipe-container img {
   width: 100%;
-  height: 100%;
 }
 .recipe-container h1 {
   font-family: sans-serif;
   font-size: 23px;
   color: #805647;
   text-align: center;
+  margin: auto 0;
 }
 .recipe-container a {
   text-decoration: none;
 }
 .recipe-container h1:hover {
   text-decoration: underline;
+}
+
+@media only screen and (max-width: 550px) {
+  .recipe-list-container {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .recipe-link {
+    width: 100%;
+  }
+  .recipe-container {
+    flex-direction: row;
+    width: 100%;
+    height: 150px;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .recipe-container img {
+    width: 200px;
+    height: 100%;
+  }
 }

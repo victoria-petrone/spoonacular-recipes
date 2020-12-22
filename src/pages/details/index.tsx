@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { getRecipeInformation } from "../../services/recipeSearch";
 import "./styles.css";
+
 interface IStep {
   length: { number: number; unit: string };
   number: number;
@@ -23,6 +24,7 @@ const Details = () => {
   const { id } = useParams<{ id: string }>();
   const [recipeDetails, setRecipeDetails] = useState<IRecipeDetails>();
   const summaryRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     (async () => {
       const results = await getRecipeInformation(id);

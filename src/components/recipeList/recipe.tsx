@@ -11,12 +11,9 @@ interface IRecipeItem {
 const RecipeItem = (props: IRecipeItem) => {
   return (
     <div className="recipe-container">
-      <Link to={`/recipe/${props.recipe.id}`}>
-        <img src={props.recipe.image} />
-      </Link>
-      <Link to={`/recipe/${props.recipe.id}`}>
-        <h1>{props.recipe.title}</h1>
-      </Link>
+      <img src={props.recipe.image} />
+
+      <h1>{props.recipe.title}</h1>
     </div>
   );
 };

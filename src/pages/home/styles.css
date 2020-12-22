@@ -1,13 +1,10 @@
 .image-container {
-  height: 684px;
+  height: 678px;
   display: flex;
   flex-direction: column;
-}
-
-.image-container img {
-  position: absolute;
-  top: 70px;
-  height: 83%;
+  background-image: url(https://www.judsonsmartliving.org/wp-content/uploads/Health-Foods-min.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .inputs-link-container {
@@ -80,7 +77,7 @@
   color: black;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 550px) {
   .input-element {
     font-size: 14px;
     height: 30px;
@@ -89,9 +86,9 @@
     font-size: 14px;
     height: 32px;
   }
-  .image-container,
-  .image-container img {
-    height: 250px;
+  .image-container {
+    height: 370px;
+    background-position: center;
   }
   .link-container {
     font-size: 9px;
