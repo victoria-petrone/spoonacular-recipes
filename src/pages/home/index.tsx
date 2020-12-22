@@ -20,10 +20,10 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="image-container">
-        <img
+        {/* <img
           alt="image"
           src="https://www.judsonsmartliving.org/wp-content/uploads/Health-Foods-min.jpeg"
-        />
+        /> */}
         <div className="inputs-link-container">
           <div className="input-button-container">
             <input

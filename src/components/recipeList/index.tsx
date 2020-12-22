@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { IRecipe } from "../../pages/search";
-//import { IRecipe } from "../pages/home";
 import RecipeItem from "./recipe";
 import "./styles.css";
 
@@ -12,7 +12,13 @@ const RecipeList = (props: IRecipeListProps) => {
   return (
     <div className="recipes-list-container">
       {props.recipes.map((recipe) => (
-        <RecipeItem key={recipe.id} recipe={recipe} />
+        <Link
+          key={recipe.id}
+          to={`/recipe/${recipe.id}`}
+          className="recipe-link"
+        >
+          <RecipeItem recipe={recipe} />
+        </Link>
       ))}
     </div>
   );

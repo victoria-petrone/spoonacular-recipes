@@ -1,9 +1,10 @@
 .recipe-detail-container {
-  width: 556px;
+  width: 100%;
   text-align: center;
-  margin: auto;
+  margin: 0 auto;
   font-family: system-ui;
   text-align: left;
+  max-width: 700px;
 }
 
 .recipe-detail-container h1 {
