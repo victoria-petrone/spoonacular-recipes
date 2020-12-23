@@ -1,0 +1,34 @@
+.input-button-container {
+  display: flex;
+  margin-bottom: 23px;
+}
+
+.input-element {
+  background-color: #ffffffb3;
+  height: 50px;
+  border: none;
+  border-bottom-left-radius: 9px;
+  border-top-left-radius: 9px;
+  flex: 1;
+  min-width: 70px;
+  font-size: 22px;
+}
+
+.input-element:focus {
+  outline: none;
+}
+
+.submit-button {
+  background-color: #ffffffb3;
+  height: 52px;
+  border-bottom-right-radius: 9px;
+  border-top-right-radius: 9px;
+  border: none;
+  font-size: 22px;
+}
+.submit-button:hover {
+  cursor: pointer;
+}
+.submit-button:focus {
+  outline: none;
+}

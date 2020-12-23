@@ -18,7 +18,7 @@
   flex-direction: column;
 }
 
-.input-button-container {
+/* .input-button-container {
   display: flex;
   margin-bottom: 23px;
 }
@@ -51,7 +51,7 @@
 .submit-button:focus {
   outline: none;
 }
-
+ */
 .link-container {
   height: 30px;
   width: 130px;
