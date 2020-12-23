@@ -3,9 +3,10 @@ import { useLocation } from "react-router-dom";
 import {
   getComplexSearch,
   getRandomRecipes,
+  IComplexSearchConfig,
 } from "../../services/recipeSearch";
 import RecipeList from "../../components/recipeList";
-
+import Search from "../../components/search";
 import "./styles.css";
 
 export interface IPagination {
@@ -19,29 +20,32 @@ export interface IRecipe {
   title: string;
 }
 
-const Search = () => {
+const SearchPage = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
   const [pagination, setPagination] = useState<IPagination>();
+  //state
+  //const [value, setValue] = useState("");
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const userInput = searchParams.get("userInput");
 
+  const complexSearch = async (config: IComplexSearchConfig) => {
+    const response = await getComplexSearch(config);
+    if (response) {
+      setRecipes(response.results);
+      setPagination({
+        number: response.number,
+        offset: response.offset,
+        totalResults: response.totalResults,
+      });
+    }
+  };
+
   useEffect(() => {
     (async () => {
       if (userInput) {
-        const response = await getComplexSearch({
-          query: userInput,
-          number: 20,
-        });
-        if (response) {
-          setRecipes(response.results);
-          setPagination({
-            number: response.number,
-            offset: response.offset,
-            totalResults: response.totalResults,
-          });
-        }
+        complexSearch({ query: userInput });
       } else {
         const response = await getRandomRecipes();
         {
@@ -49,9 +53,23 @@ const Search = () => {
         }
       }
     })();
-  }, []);
+  }, [userInput]);
 
-  return <div>{recipes && <RecipeList recipes={recipes} />}</div>;
+  const onSubmit = (config: IComplexSearchConfig) => {
+    complexSearch(config);
+  };
+
+  return (
+    <div>
+      <Search
+        placeholder="What do you wanna eat?"
+        onSubmit={onSubmit}
+        //send via props
+        //value={value}
+      />
+      <div>{recipes && <RecipeList recipes={recipes} />}</div>
+    </div>
+  );
 };
 
-export default Search;
+export default SearchPage;

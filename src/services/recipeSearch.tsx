@@ -1,9 +1,9 @@
 import axios from "axios";
 import { IPagination, IRecipe } from "../pages/search";
 
-interface IComplexSearchConfig {
+export interface IComplexSearchConfig {
   query: string;
-  number: number;
+  number?: number;
 }
 
 interface IComplexResponse extends IPagination {

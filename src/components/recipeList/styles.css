@@ -4,6 +4,7 @@
   margin: 30px;
   justify-content: center;
 }
+
 .recipe-container {
   background-color: white;
   margin: 10px;
@@ -24,13 +25,14 @@
   text-align: center;
   margin: auto 0;
 }
-.recipe-container a {
-  text-decoration: none;
-}
+
 .recipe-container h1:hover {
   text-decoration: underline;
 }
 
+a {
+  text-decoration: none;
+}
 @media only screen and (max-width: 550px) {
   .recipe-list-container {
     flex-wrap: nowrap;
