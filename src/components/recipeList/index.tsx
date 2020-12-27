@@ -12,13 +12,7 @@ const RecipeList = (props: IRecipeListProps) => {
   return (
     <div className="recipes-list-container">
       {props.recipes.map((recipe) => (
-        <Link
-          key={recipe.id}
-          to={`/recipe/${recipe.id}`}
-          className="recipe-link"
-        >
-          <RecipeItem recipe={recipe} />
-        </Link>
+        <RecipeItem key={recipe.id} recipe={recipe} />
       ))}
     </div>
   );

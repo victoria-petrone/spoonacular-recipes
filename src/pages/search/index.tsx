@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import {
   getComplexSearch,
   getRandomRecipes,
@@ -23,9 +23,8 @@ export interface IRecipe {
 const SearchPage = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
   const [pagination, setPagination] = useState<IPagination>();
-  //state
-  //const [value, setValue] = useState("");
 
+  const history = useHistory();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const userInput = searchParams.get("userInput");
@@ -56,6 +55,7 @@ const SearchPage = () => {
   }, [userInput]);
 
   const onSubmit = (config: IComplexSearchConfig) => {
+    searchParams.delete("userInput");
     complexSearch(config);
   };
 
@@ -64,8 +64,7 @@ const SearchPage = () => {
       <Search
         placeholder="What do you wanna eat?"
         onSubmit={onSubmit}
-        //send via props
-        //value={value}
+        initialValue={userInput}
       />
       <div>{recipes && <RecipeList recipes={recipes} />}</div>
     </div>

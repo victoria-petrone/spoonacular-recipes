@@ -1,0 +1,22 @@
+.select-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border: 1px solid black;
+}
+
+.value-container {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 5px 0;
+}
+
+.options-container {
+  border-top: 1px solid black;
+  position: relative;
+  background-color: blanchedalmond;
+}
+.option-container {
+  border: 1px solid gray;
+  padding: 4px 0;
+}

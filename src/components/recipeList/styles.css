@@ -33,6 +33,13 @@
 a {
   text-decoration: none;
 }
+
+.favorite {
+  color: var(--red);
+  font-size: 1.5rem;
+  position: absolute;
+  cursor: pointer;
+}
 @media only screen and (max-width: 550px) {
   .recipe-list-container {
     flex-wrap: nowrap;

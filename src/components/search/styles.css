@@ -32,3 +32,11 @@
 .submit-button:focus {
   outline: none;
 }
+
+.filters-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 30px;
+  background-color: aqua;
+}

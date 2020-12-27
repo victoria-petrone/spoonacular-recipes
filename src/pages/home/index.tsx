@@ -8,7 +8,7 @@ const Home = () => {
     <div className="home-container">
       <div className="image-container">
         <div className="inputs-link-container">
-          <Search placeholder="Hungry?" />
+          <Search placeholder="Hungry?" initialValue={""} />
           <div className="link-container">
             <Link to="/search">Advanced Search</Link>
           </div>
