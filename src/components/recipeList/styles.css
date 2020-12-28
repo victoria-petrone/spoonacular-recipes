@@ -24,6 +24,10 @@
   color: #805647;
   text-align: center;
   margin: auto 0;
+  height: 127px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .recipe-container h1:hover {
