@@ -6,10 +6,19 @@ interface ISelectProps {
   title: string;
   options: Array<{ name: string; value: string }>;
   onChange: (filter: string, selection: string[]) => void;
+  isOpen: boolean;
+  setIsOpen: (t: boolean) => void;
 }
 
-const Select = ({ name, title, options, onChange }: ISelectProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Select = ({
+  name,
+  title,
+  options,
+  onChange,
+  isOpen,
+  setIsOpen,
+}: ISelectProps) => {
+  // const [isOpen, setIsOpen] = useState(false);
   const [selection, setSelection] = useState<Array<string>>([]);
 
   const clickHandler = (value: string) => {
@@ -44,7 +53,7 @@ const Select = ({ name, title, options, onChange }: ISelectProps) => {
               onClick={() => clickHandler(value)}
             >
               <span>
-                {name}{" "}
+                {name}
                 {selection.includes(value) && <i className="ri-check-line"></i>}
               </span>
             </div>

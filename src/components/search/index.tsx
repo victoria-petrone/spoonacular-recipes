@@ -12,6 +12,8 @@ interface ISearchProps {
 }
 
 const Search = (props: ISearchProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const [config, setConfig] = useState<IComplexSearchConfig>({
     query: props.initialValue || "",
   });
@@ -73,9 +75,12 @@ const Search = (props: ISearchProps) => {
             title={title}
             options={options}
             onChange={changeHandler}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
           />
         ))}
       </div>
+      {isOpen ? <div className="div-extra-recipe-list"></div> : ""}
     </div>
   );
 };
