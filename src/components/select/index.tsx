@@ -40,7 +40,10 @@ const Select = ({ name, title, options, onChange }: ISelectProps) => {
               className="option-container"
               onClick={() => clickHandler(value)}
             >
-              <span>{name}</span>
+              <span>
+                {name}{" "}
+                {selection.includes(value) && <i className="ri-check-line"></i>}
+              </span>
             </div>
           ))}
         </div>
