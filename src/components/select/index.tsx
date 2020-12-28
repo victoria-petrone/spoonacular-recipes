@@ -27,7 +27,10 @@ const Select = ({ name, title, options, onChange }: ISelectProps) => {
 
   return (
     <div className="select-container">
-      <div className="value-container" onClick={() => setIsOpen(!isOpen)}>
+      <div
+        className={`value-container${isOpen ? "-open" : ""}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <span>{title}</span>
         <i className={`ri-arrow-drop-${isOpen ? "up" : "down"}-line`} />
       </div>
