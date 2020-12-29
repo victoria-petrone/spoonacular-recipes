@@ -11,32 +11,45 @@
   font-size: 20px;
   justify-content: center;
   padding-top: 10px;
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 9px;
+  background-color: #eadbcc;
+  color: #916338;
 }
 .value-container-open {
   display: flex;
   flex-wrap: nowrap;
   font-size: 20px;
   justify-content: center;
-  background-color: white;
+  background-color: #eadbcc;
   color: #c7a17c;
   font-weight: bold;
   padding-top: 10px;
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
 }
+
 .value-container-open:hover {
   cursor: pointer;
 }
 .value-container i {
   font-size: 30px;
   margin-top: -4px;
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
 }
 
 .options-container {
   position: relative;
-  background-color: white;
+  background-color: #eadbcc;
   font-size: 16px;
   margin-top: -1px;
   padding-top: 20px;
   z-index: 1;
+  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 9px;
 }
 .option-container {
   padding: 4px 0;
