@@ -1,5 +1,22 @@
-.input-button-container {
+.search-container-search {
+  background-color: white;
+}
+
+.input-button-container-home {
   display: flex;
+}
+.input-button-container-search {
+  background-color: #ffffff;
+  text-align: center;
+  padding-top: 10px;
+}
+.input-button-container-search input {
+  width: 30%;
+  background-color: #eadbcc;
+}
+
+.input-button-container-search button {
+  background-color: #eadbcc;
 }
 
 .input-element {
@@ -12,7 +29,9 @@
   min-width: 70px;
   font-size: 22px;
 }
-
+::placeholder {
+  color: #916338;
+}
 .input-element:focus {
   outline: none;
 }
@@ -37,8 +56,15 @@
   flex-wrap: nowrap;
   justify-content: space-evenly;
   height: 40px;
-  background-color: #bbb7b4;
   font-family: sans-serif;
+  width: 66%;
+  margin: auto;
+  border-bottom-right-radius: 9px;
+  border-top-right-radius: 9px;
+  border-bottom-left-radius: 9px;
+  border-top-left-radius: 9px;
+  padding: 10px;
+  margin-top: 10px;
 }
 
 .div-extra-recipe-list {

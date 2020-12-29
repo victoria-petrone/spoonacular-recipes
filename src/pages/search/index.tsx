@@ -23,6 +23,7 @@ export interface IRecipe {
 const SearchPage = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
   const [pagination, setPagination] = useState<IPagination>();
+  const [isSearchPage, setIsSearchPage] = useState(true);
 
   const history = useHistory();
   const location = useLocation();
@@ -65,6 +66,7 @@ const SearchPage = () => {
         placeholder="What do you wanna eat?"
         onSubmit={onSubmit}
         initialValue={userInput}
+        isSearchPage={isSearchPage}
       />
       <div>{recipes && <RecipeList recipes={recipes} />}</div>
     </div>

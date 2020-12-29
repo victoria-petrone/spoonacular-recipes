@@ -9,6 +9,7 @@ interface ISearchProps {
   onSubmit?: (config: IComplexSearchConfig) => void;
   placeholder: string;
   initialValue: string | null;
+  isSearchPage?: boolean;
 }
 
 const Search = (props: ISearchProps) => {
@@ -47,8 +48,14 @@ const Search = (props: ISearchProps) => {
   };
 
   return (
-    <div className="search-container">
-      <div className="input-button-container">
+    <div
+      className={`search-container-${props.isSearchPage ? "search" : "home"}`}
+    >
+      <div
+        className={`input-button-container-${
+          props.isSearchPage ? "search" : "home"
+        }`}
+      >
         <input
           onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           placeholder={props.placeholder}
@@ -67,20 +74,26 @@ const Search = (props: ISearchProps) => {
           Search
         </button>
       </div>
-      <div className="filters-container">
-        {filters.map(({ name, title, options }) => (
-          <Select
-            key={name}
-            name={name}
-            title={title}
-            options={options}
-            onChange={changeHandler}
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-          />
-        ))}
-      </div>
-      {isOpen ? <div className="div-extra-recipe-list"></div> : ""}
+      {props.isSearchPage ? (
+        <div>
+          <div className="filters-container">
+            {filters.map(({ name, title, options }) => (
+              <Select
+                key={name}
+                name={name}
+                title={title}
+                options={options}
+                onChange={changeHandler}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+              />
+            ))}
+          </div>
+          {isOpen ? <div className="div-extra-recipe-list"></div> : ""}
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
