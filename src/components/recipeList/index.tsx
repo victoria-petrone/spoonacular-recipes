@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { IRecipe } from "../../pages/search";
 import RecipeItem from "./recipe";
 import "./styles.css";
