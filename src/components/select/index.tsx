@@ -18,7 +18,6 @@ const Select = ({
   isOpen,
   setIsOpen,
 }: ISelectProps) => {
-  // const [isOpen, setIsOpen] = useState(false);
   const [selection, setSelection] = useState<Array<string>>([]);
 
   const clickHandler = (value: string) => {

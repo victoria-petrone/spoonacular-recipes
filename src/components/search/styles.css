@@ -20,6 +20,7 @@
 }
 
 .input-element {
+  padding-left: 10px;
   background-color: #ffffffb3;
   height: 50px;
   border: none;
@@ -29,9 +30,9 @@
   min-width: 70px;
   font-size: 22px;
 }
-::placeholder {
+/* .input-button-container-search::placeholder {
   color: #916338;
-}
+} */
 .input-element:focus {
   outline: none;
 }
