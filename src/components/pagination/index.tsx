@@ -9,24 +9,33 @@ interface IPagi {
   totalResults: number;
   changePage: (action: any) => void;
 }
-const Pagination = (props: IPagi) => {
+const Pagination = ({ number, offset, totalResults, ...props }: IPagi) => {
+  //  const page =
+
+  // const pages = Math.floor(totalResults / number); //total pages
+  const currentPage = offset === 0 ? 1 : Math.floor(offset / number) + 1;
+  const restPages = Math.floor((totalResults - offset) / number);
   return (
     <div className="pagination-container">
-      {props.offset !== 1 && (
-        <button
-          className="button-hover"
-          onClick={() => props.changePage("previous")}
-        >
-          Previous
-        </button>
-      )}
-      {props.offset !== 1 && <button disabled>{props.offset - 1}</button>}
-      <button disabled className="current-page">
-        {props.offset}
+      <button
+        disabled={currentPage === 1}
+        className="button-hover"
+        onClick={() => props.changePage("previous")}
+      >
+        Previous
       </button>
-      <button disabled>{props.offset + 1}</button>
-      <p>...{Math.floor(props.totalResults / props.number - props.offset)}</p>
-      <button className="button-hover" onClick={() => props.changePage("next")}>
+
+      {currentPage !== 1 && <button disabled>{currentPage - 1}</button>}
+      <button disabled className="current-page">
+        {currentPage}
+      </button>
+      <button disabled>{currentPage + 1}</button>
+      {restPages > 0 && <p>...{restPages}</p>}
+      <button
+        disabled={restPages === 0}
+        className="button-hover"
+        onClick={() => props.changePage("next")}
+      >
         Next
       </button>
     </div>

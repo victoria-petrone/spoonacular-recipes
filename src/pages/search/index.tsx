@@ -35,10 +35,12 @@ const SearchPage = () => {
 
   const changePage = (action: "previous" | "next") => {
     const newOffset =
-      action === "next" ? config.number : config.offset - config.number;
+      action === "next"
+        ? config.offset + config.number
+        : config.offset - config.number;
     const newConfig = { ...config, offset: newOffset };
     setConfig(newConfig);
-    complexSearch(newConfig);
+    // complexSearch(newConfig);
   };
 
   const complexSearch = async (config: IComplexSearchConfig) => {
