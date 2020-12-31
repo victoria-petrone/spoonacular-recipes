@@ -6,26 +6,22 @@ import "./styles.css";
 import filters from "../../utils/filters";
 
 interface ISearchProps {
-  onSubmit?: (config: IComplexSearchConfig) => void;
+  config: IComplexSearchConfig;
+  setConfig: (config: IComplexSearchConfig) => void;
   placeholder: string;
   initialValue: string | null;
   isSearchPage?: boolean;
 }
 
-const Search = (props: ISearchProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const [config, setConfig] = useState<IComplexSearchConfig>({
-    query: props.initialValue || "",
-  });
-
+const Search = ({ config, setConfig, ...props }: ISearchProps) => {
+  const [userQuery, setUserQuery] = useState(config.query);
   const history = useHistory();
 
   const handleSubmit = () => {
-    if (props.onSubmit) {
-      props.onSubmit(config);
+    if (props.isSearchPage) {
+      setConfig({ ...config, query: userQuery });
     } else {
-      history.push(`/search?userInput=${config.query}`);
+      history.push(`/search?userInput=${userQuery}`);
     }
   };
 
@@ -44,7 +40,6 @@ const Search = (props: ISearchProps) => {
   const changeHandler = (filter: string, selection: string[]) => {
     const newConfig = { ...config, [filter]: sanitizeSelection(selection) };
     setConfig(newConfig);
-    props.onSubmit?.(newConfig);
   };
 
   return (
@@ -61,10 +56,8 @@ const Search = (props: ISearchProps) => {
           placeholder={props.placeholder}
           className="input-element"
           type="text"
-          onChange={(e) =>
-            setConfig({ ...config, query: e.currentTarget.value })
-          }
-          value={config.query}
+          onChange={(e) => setUserQuery(e.currentTarget.value)}
+          value={userQuery}
         />
         <button
           onClick={handleSubmit}
@@ -84,12 +77,9 @@ const Search = (props: ISearchProps) => {
                 title={title}
                 options={options}
                 onChange={changeHandler}
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
               />
             ))}
           </div>
-          {isOpen ? <div className="div-extra-recipe-list"></div> : ""}
         </div>
       ) : (
         ""

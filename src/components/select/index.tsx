@@ -6,32 +6,22 @@ interface ISelectProps {
   title: string;
   options: Array<{ name: string; value: string }>;
   onChange: (filter: string, selection: string[]) => void;
-  isOpen: boolean;
-  setIsOpen: (t: boolean) => void;
 }
 
-const Select = ({
-  name,
-  title,
-  options,
-  onChange,
-  isOpen,
-  setIsOpen,
-}: ISelectProps) => {
+const Select = ({ name, title, options, onChange }: ISelectProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   const [selection, setSelection] = useState<Array<string>>([]);
 
   const clickHandler = (value: string) => {
+    let newSelection: string[];
     if (selection.includes(value)) {
-      const newSelection = selection.filter((v) => v !== value);
-      setSelection(newSelection);
+      newSelection = selection.filter((v) => v !== value);
     } else {
-      setSelection([...selection, value]);
+      newSelection = [...selection, value];
     }
+    setSelection(newSelection);
+    onChange(name, newSelection);
   };
-
-  useEffect(() => {
-    onChange(name, selection);
-  }, [selection]);
 
   return (
     <div className="select-container">
