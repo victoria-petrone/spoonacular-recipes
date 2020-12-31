@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   getComplexSearch,
   getRandomRecipes,
@@ -7,6 +7,7 @@ import {
 } from "../../services/recipeSearch";
 import RecipeList from "../../components/recipeList";
 import Search from "../../components/search";
+import Pagination from "./../../components/pagination";
 import "./styles.css";
 
 export interface IPagination {
@@ -21,16 +22,29 @@ export interface IRecipe {
 }
 
 const SearchPage = () => {
-  const [recipes, setRecipes] = useState<IRecipe[]>([]);
-  const [pagination, setPagination] = useState<IPagination>();
-  const [isSearchPage, setIsSearchPage] = useState(true);
-
-  const history = useHistory();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const userInput = searchParams.get("userInput");
+
+  const [config, setConfig] = useState<IComplexSearchConfig>({
+    query: searchParams.get("userInput") || "",
+    offset: 0,
+    number: 10,
+  });
+  const [recipes, setRecipes] = useState<IRecipe[]>([]);
+  const [pagination, setPagination] = useState<IPagination>();
+
+  const changePage = (action: "previous" | "next") => {
+    const newOffset =
+      action === "next"
+        ? config.offset + config.number
+        : config.offset - config.number;
+    const newConfig = { ...config, offset: newOffset };
+    setConfig(newConfig);
+    // complexSearch(newConfig);
+  };
 
   const complexSearch = async (config: IComplexSearchConfig) => {
+    console.log(searchParams.get("userInput"));
     const response = await getComplexSearch(config);
     if (response) {
       setRecipes(response.results);
@@ -44,31 +58,33 @@ const SearchPage = () => {
 
   useEffect(() => {
     (async () => {
-      if (userInput) {
-        complexSearch({ query: userInput });
+      if (config.query) {
+        complexSearch(config);
       } else {
         const response = await getRandomRecipes();
-        {
-          response && setRecipes(response.recipes);
-        }
+        response && setRecipes(response.recipes);
       }
     })();
-  }, [userInput]);
-
-  const onSubmit = (config: IComplexSearchConfig) => {
-    searchParams.delete("userInput");
-    complexSearch(config);
-  };
+  }, [config]);
 
   return (
     <div>
       <Search
+        config={config}
+        setConfig={setConfig}
         placeholder="What do you wanna eat?"
-        onSubmit={onSubmit}
-        initialValue={userInput}
-        isSearchPage={isSearchPage}
+        initialValue={searchParams.get("userInput")}
+        isSearchPage
       />
       <div>{recipes && <RecipeList recipes={recipes} />}</div>
+      {pagination && (
+        <Pagination
+          number={pagination?.number}
+          offset={pagination?.offset}
+          totalResults={pagination?.totalResults}
+          changePage={changePage}
+        />
+      )}
     </div>
   );
 };
