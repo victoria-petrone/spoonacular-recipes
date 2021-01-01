@@ -10,9 +10,6 @@ interface IPagi {
   changePage: (action: any) => void;
 }
 const Pagination = ({ number, offset, totalResults, ...props }: IPagi) => {
-  //  const page =
-
-  // const pages = Math.floor(totalResults / number); //total pages
   const currentPage = offset === 0 ? 1 : Math.floor(offset / number) + 1;
   const restPages = Math.floor((totalResults - offset) / number);
   return (
@@ -29,8 +26,9 @@ const Pagination = ({ number, offset, totalResults, ...props }: IPagi) => {
       <button disabled className="current-page">
         {currentPage}
       </button>
-      <button disabled>{currentPage + 1}</button>
-      {restPages > 0 && <p>...{restPages}</p>}
+      {restPages > 0 && <button disabled>{currentPage + 1}</button>}
+      {restPages - 1 > 0 && <p>...</p>}
+      {restPages - 1 > 0 && <p>{restPages - 1}</p>}
       <button
         disabled={restPages === 0}
         className="button-hover"
