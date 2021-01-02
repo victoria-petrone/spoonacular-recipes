@@ -23,8 +23,20 @@ const Select = ({ name, title, options, onChange }: ISelectProps) => {
     onChange(name, newSelection);
   };
 
+  const onClickOutsideListener = () => {
+    {
+      isOpen && setIsOpen(!isOpen);
+    }
+    document.removeEventListener("click", onClickOutsideListener);
+  };
+
   return (
-    <div className="select-container">
+    <div
+      className="select-container"
+      onMouseLeave={() => {
+        document.addEventListener("click", onClickOutsideListener);
+      }}
+    >
       <div
         className={`value-container${isOpen ? "-open" : ""}`}
         onClick={() => setIsOpen(!isOpen)}
