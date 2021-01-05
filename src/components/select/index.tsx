@@ -6,12 +6,23 @@ interface ISelectProps {
   title: string;
   options: Array<{ name: string; value: string }>;
   onChange: (filter: string, selection: string[]) => void;
+  selectedFilters?: string;
 }
 
-const Select = ({ name, title, options, onChange }: ISelectProps) => {
+const Select = ({
+  name,
+  title,
+  options,
+  onChange,
+  selectedFilters,
+}: ISelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selection, setSelection] = useState<Array<string>>([]);
+  const [selection, setSelection] = useState<Array<string>>(
+    selectedFilters?.split(", ") || []
+  );
 
+  // console.log(name, selectedFilters?.split(", "));
+  console.log(selection);
   const clickHandler = (value: string) => {
     let newSelection: string[];
     if (selection.includes(value)) {

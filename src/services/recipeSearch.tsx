@@ -4,8 +4,10 @@ import { IPagination, IRecipe } from "../pages/search";
 export interface IComplexSearchConfig {
   query: string;
   number: number;
-  cuisine?: string;
   offset: number;
+  cuisine?: string;
+  intolerance?: string;
+  diet?: string;
 }
 
 interface IComplexResponse extends IPagination {

@@ -1,10 +1,10 @@
 export interface IFilter {
-  name: string;
+  name: "cuisine" | "diet" | "intolerances";
   title: string;
   options: Array<{ name: string; value: string }>;
 }
 
-const filters: IFilter[] = [
+const filtersData: IFilter[] = [
   {
     name: "cuisine", //key del obj config (api)
     title: "Cuisine", // nombre que se muestra
@@ -50,4 +50,4 @@ const filters: IFilter[] = [
     ],
   },
 ];
-export default filters;
+export default filtersData;
