@@ -30,6 +30,7 @@ const SearchPage = () => {
     offset: 0,
     number: 10,
   });
+  console.log(config);
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
   const [pagination, setPagination] = useState<IPagination>();
 
@@ -40,11 +41,10 @@ const SearchPage = () => {
         : config.offset - config.number;
     const newConfig = { ...config, offset: newOffset };
     setConfig(newConfig);
-    // complexSearch(newConfig);
+    complexSearch(newConfig);
   };
 
   const complexSearch = async (config: IComplexSearchConfig) => {
-    console.log(searchParams.get("userInput"));
     const response = await getComplexSearch(config);
     if (response) {
       setRecipes(response.results);
@@ -57,15 +57,27 @@ const SearchPage = () => {
   };
 
   useEffect(() => {
+    console.log("search");
+    const newUserInput = searchParams.get("userInput");
+    const newFilters = searchParams.get("filters");
+
+    const parsedFilters = newFilters && JSON.parse(newFilters);
+    const newConfig = {
+      offset: 0,
+      number: config.number,
+      query: newUserInput || config.query,
+      ...parsedFilters,
+    };
+    setConfig(newConfig);
     (async () => {
-      if (config.query) {
-        complexSearch(config);
+      if (newConfig.query) {
+        complexSearch(newConfig);
       } else {
         const response = await getRandomRecipes();
         response && setRecipes(response.recipes);
       }
     })();
-  }, [config]);
+  }, [location.search]);
 
   return (
     <div>

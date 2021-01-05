@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./styles.css";
-//import logo from "./logo1.jpg";
 
 const logo = require("./pngwing.png");
 

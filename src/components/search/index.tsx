@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { IComplexSearchConfig } from "../../services/recipeSearch";
 import Select from "../select";
 import "./styles.css";
-import filters from "../../utils/filters";
+import filtersData from "../../utils/filters";
 
 interface ISearchProps {
   config: IComplexSearchConfig;
@@ -13,18 +13,24 @@ interface ISearchProps {
   isSearchPage?: boolean;
 }
 
-const Search = ({ config, setConfig, ...props }: ISearchProps) => {
+interface IFilters {
+  cuisine?: string;
+  diet?: string;
+  intolerances?: string;
+}
+
+const Search = ({ config, ...props }: ISearchProps) => {
   const [userQuery, setUserQuery] = useState(config.query);
-  const history = useHistory();
+  const [filters, setFilters] = useState<IFilters>();
+  const { push, location } = useHistory();
 
   const handleSubmit = () => {
     if (props.isSearchPage) {
-      setConfig({ ...config, query: userQuery });
+      push(`/search?userInput=${userQuery}`);
     } else {
-      history.push(`/search?userInput=${userQuery}`);
+      push(`/search?userInput=${userQuery}`);
     }
   };
-
   const sanitizeSelection = (selection: string[]) => {
     let sanitizedSelection: string = "";
     selection.forEach((item, i) => {
@@ -37,9 +43,26 @@ const Search = ({ config, setConfig, ...props }: ISearchProps) => {
     return sanitizedSelection;
   };
 
-  const changeHandler = (filter: string, selection: string[]) => {
-    const newConfig = { ...config, [filter]: sanitizeSelection(selection) };
-    setConfig(newConfig);
+  const changeHandler = (filterName: string, selection: string[]) => {
+    const newFilters = {
+      ...filters,
+      [filterName]: sanitizeSelection(selection),
+    };
+
+    const cleanedFilters = Object.fromEntries(
+      Object.entries(newFilters).filter((f) => f[1] !== "")
+    );
+    setFilters(cleanedFilters);
+    const { pathname, search } = location;
+    const oldPath = pathname + `?userInput=${userQuery}`;
+    const getFilters = () => {
+      if (Object.keys(cleanedFilters).length === 0) {
+        return "";
+      }
+      return "&filters=" + JSON.stringify(cleanedFilters);
+    };
+
+    push(oldPath + getFilters());
   };
 
   return (
@@ -70,9 +93,10 @@ const Search = ({ config, setConfig, ...props }: ISearchProps) => {
       {props.isSearchPage ? (
         <div>
           <div className="filters-container">
-            {filters.map(({ name, title, options }) => (
+            {filtersData.map(({ name, title, options }) => (
               <Select
                 key={name}
+                selectedFilters={filters?.[name]}
                 name={name}
                 title={title}
                 options={options}
