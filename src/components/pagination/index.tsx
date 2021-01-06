@@ -22,16 +22,24 @@ const Pagination = ({ number, offset, totalResults, ...props }: IPagi) => {
         Previous
       </button>
 
-      {currentPage !== 1 && <button disabled>{currentPage - 1}</button>}
-      <button disabled className="current-page">
+      {currentPage !== 1 && (
+        <button className="pagination-button" disabled>
+          {currentPage - 1}
+        </button>
+      )}
+      <button disabled className="current-page pagination-button">
         {currentPage}
       </button>
-      {restPages > 0 && <button disabled>{currentPage + 1}</button>}
+      {restPages > 0 && (
+        <button disabled className="pagination-button">
+          {currentPage + 1}
+        </button>
+      )}
       {restPages - 1 > 0 && <p>...</p>}
       {restPages - 1 > 0 && <p>{restPages - 1}</p>}
       <button
         disabled={restPages === 0}
-        className="button-hover"
+        className="button-hover pagination-button"
         onClick={() => props.changePage("next")}
       >
         Next
