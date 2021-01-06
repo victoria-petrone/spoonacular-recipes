@@ -28,7 +28,7 @@ const SearchPage = () => {
   const [config, setConfig] = useState<IComplexSearchConfig>({
     query: searchParams.get("userInput") || "",
     offset: 0,
-    number: 10,
+    number: 20,
   });
   console.log(config);
   const [recipes, setRecipes] = useState<IRecipe[]>([]);

@@ -30,7 +30,7 @@ const getDetailsURL = (id: string) => {
 };
 
 const urlRandom =
-  "https://api.spoonacular.com/recipes/random?number=8&tags=vegetarian&apiKey=" +
+  "https://api.spoonacular.com/recipes/random?number=20&tags=vegetarian&apiKey=" +
   key;
 
 export const getComplexSearch = async (

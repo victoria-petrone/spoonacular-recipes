@@ -44,6 +44,7 @@
   border-top-right-radius: 9px;
   border: none;
   font-size: 22px;
+  margin: 0px;
 }
 .submit-button:hover {
   cursor: pointer;

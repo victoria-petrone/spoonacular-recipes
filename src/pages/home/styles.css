@@ -10,48 +10,12 @@
 .inputs-link-container {
   z-index: 1;
   margin: auto;
-  /* border-radius: 15px; */
   display: flex;
   flex-wrap: nowrap;
   width: 60%;
-  /* justify-content: flex-end; */
   flex-direction: column;
 }
 
-/* .input-button-container {
-  display: flex;
-  margin-bottom: 23px;
-}
-.input-element {
-  background-color: #ffffffb3;
-  height: 50px;
-  border: none;
-  border-bottom-left-radius: 9px;
-  border-top-left-radius: 9px;
-  flex: 1;
-  min-width: 70px;
-  font-size: 22px;
-}
-
-.input-element:focus {
-  outline: none;
-}
-
-.submit-button {
-  background-color: #ffffffb3;
-  height: 52px;
-  border-bottom-right-radius: 9px;
-  border-top-right-radius: 9px;
-  border: none;
-  font-size: 22px;
-}
-.submit-button:hover {
-  cursor: pointer;
-}
-.submit-button:focus {
-  outline: none;
-}
- */
 .link-container {
   height: 30px;
   width: 130px;
@@ -62,6 +26,7 @@
   text-decoration: none;
   color: rgb(99, 99, 99);
   align-self: center;
+  margin-top: 10px;
 }
 
 .link-container a {
