@@ -9,7 +9,7 @@ interface IRecipeItem {
 
 const RecipeItem = (props: IRecipeItem) => {
   const [hovered, setHovered] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   function enter() {
     setHovered(true);
@@ -20,8 +20,8 @@ const RecipeItem = (props: IRecipeItem) => {
   }
 
   useEffect(() => {
-    ref.current.addEventListener("mouseenter", enter);
-    ref.current.addEventListener("mouseleave", leave);
+    ref.current && ref.current.addEventListener("mouseenter", enter);
+    ref.current && ref.current.addEventListener("mouseleave", leave);
   }, []);
 
   const iconClassName = hovered ? "ri-heart-line favorite" : "";

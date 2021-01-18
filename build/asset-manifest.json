@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/spoonacular-recipes/static/css/main.2c56db74.chunk.css",
+    "main.js": "/spoonacular-recipes/static/js/main.738a9da1.chunk.js",
+    "main.js.map": "/spoonacular-recipes/static/js/main.738a9da1.chunk.js.map",
+    "runtime-main.js": "/spoonacular-recipes/static/js/runtime-main.a15d318a.js",
+    "runtime-main.js.map": "/spoonacular-recipes/static/js/runtime-main.a15d318a.js.map",
+    "static/js/2.7db38244.chunk.js": "/spoonacular-recipes/static/js/2.7db38244.chunk.js",
+    "static/js/2.7db38244.chunk.js.map": "/spoonacular-recipes/static/js/2.7db38244.chunk.js.map",
+    "index.html": "/spoonacular-recipes/index.html",
+    "precache-manifest.8cb546652f555e47857a2bc63ac7024a.js": "/spoonacular-recipes/precache-manifest.8cb546652f555e47857a2bc63ac7024a.js",
+    "service-worker.js": "/spoonacular-recipes/service-worker.js",
+    "static/css/main.2c56db74.chunk.css.map": "/spoonacular-recipes/static/css/main.2c56db74.chunk.css.map",
+    "static/js/2.7db38244.chunk.js.LICENSE": "/spoonacular-recipes/static/js/2.7db38244.chunk.js.LICENSE",
+    "static/media/pngwing.png": "/spoonacular-recipes/static/media/pngwing.cce4dd53.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a15d318a.js",
+    "static/js/2.7db38244.chunk.js",
+    "static/css/main.2c56db74.chunk.css",
+    "static/js/main.738a9da1.chunk.js"
+  ]
+}
