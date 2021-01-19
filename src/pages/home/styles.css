@@ -1,5 +1,5 @@
 .image-container {
-  height: 678px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   background-image: url(https://www.judsonsmartliving.org/wp-content/uploads/Health-Foods-min.jpeg);
@@ -52,7 +52,6 @@
     height: 32px;
   }
   .image-container {
-    height: 370px;
     background-position: center;
   }
   .link-container {
