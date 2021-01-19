@@ -1,0 +1,22 @@
+.about {
+  width: 50%;
+  margin: auto;
+  text-align: justify;
+  padding: 20px;
+}
+.about__title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bolder;
+  margin-bottom: 50px;
+}
+.about__paragraph {
+  font-size: 20px;
+  color: #6a6363;
+}
+.about_the_app {
+  background-color: #efd4b8;
+  color: #535353;
+  margin: 40px 0px;
+  padding: 20px 62px 62px 62px;
+}

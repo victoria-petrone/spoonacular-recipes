@@ -19,9 +19,7 @@ function Header() {
         <Link to="/" className={getClassName("/")}>
           Home
         </Link>
-        <Link to="/favorite" className={getClassName("/favorite")}>
-          Favorites
-        </Link>
+
         <Link to="/about" className={getClassName("/about")}>
           About
         </Link>
