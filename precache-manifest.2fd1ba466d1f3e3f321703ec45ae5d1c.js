@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "76858c36fc096967cf3325b9e7db4604",
+    "revision": "c7c525bd4900f77635488ed38c152ab3",
     "url": "/spoonacular-recipes/index.html"
   },
   {
-    "revision": "99581860821651526b86",
-    "url": "/spoonacular-recipes/static/css/main.051df9c7.chunk.css"
+    "revision": "06a9f939a9a20306e036",
+    "url": "/spoonacular-recipes/static/css/main.92195b7d.chunk.css"
   },
   {
     "revision": "23095e783cfd1cf3aa31",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/spoonacular-recipes/static/js/2.b9b3d3ed.chunk.js.LICENSE"
   },
   {
-    "revision": "99581860821651526b86",
-    "url": "/spoonacular-recipes/static/js/main.b11c8fac.chunk.js"
+    "revision": "06a9f939a9a20306e036",
+    "url": "/spoonacular-recipes/static/js/main.95fa6791.chunk.js"
   },
   {
     "revision": "adafd33e3fe4bec1b030",

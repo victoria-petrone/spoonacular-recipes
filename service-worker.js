@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/spoonacular-recipes/precache-manifest.aec971bea4bfedeca8d87fa318815fb3.js"
+  "/spoonacular-recipes/precache-manifest.2fd1ba466d1f3e3f321703ec45ae5d1c.js"
 );
 
 self.addEventListener('message', (event) => {
