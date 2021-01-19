@@ -22,7 +22,7 @@ const FooterComponent = () => {
           <i className="ri-xing-fill" />
         </a>
       </div>
-      <p>© 2020 Victoria Petrone. All rights reserved.</p>
+      <p>© 2021 Victoria Petrone. All rights reserved.</p>
     </div>
   );
 };
