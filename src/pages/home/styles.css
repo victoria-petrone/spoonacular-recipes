@@ -42,7 +42,7 @@
   color: black;
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (min-width: 300px) and (max-width: 700px) {
   .input-element {
     font-size: 14px;
     height: 30px;
@@ -55,8 +55,8 @@
     background-position: center;
   }
   .link-container {
-    font-size: 9px;
-    height: 20px;
-    width: 76px;
+    font-size: 13px;
+    height: 25px;
+    width: 110px;
   }
 }

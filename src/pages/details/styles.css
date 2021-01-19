@@ -3,12 +3,14 @@
   text-align: center;
   margin: 0 auto;
   font-family: system-ui;
-  text-align: left;
+
   max-width: 700px;
 }
 
 .recipe-detail-container h1 {
   text-align: center;
+  color: #805647;
+  font-size: 3em;
 }
 
 .recipe-detail-container img {
@@ -18,7 +20,9 @@
 .all {
   border: 1px solid #c7a17c;
   padding: 21px;
-  margin: 15px;
+
+  text-align: left;
+  margin-top: -6px;
 }
 
 .summary-container {
@@ -52,4 +56,31 @@
 
 h2 {
   text-align: left;
+  color: #c7a17c;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 700px) {
+  .recipe-detail-container img {
+    width: 92%;
+    margin: auto;
+  }
+  .recipe-detail-container h1 {
+    font-size: 2em;
+  }
+  .all {
+    margin-top: -6px !important;
+    width: 91%;
+    margin: auto;
+    margin-bottom: 15px;
+    padding: 0px;
+  }
+  .ingredients-container h2 {
+    padding-left: 11px;
+  }
+  .step-description {
+    padding: 0;
+  }
+  .summary-container h2 {
+    padding-left: 11px;
+  }
 }

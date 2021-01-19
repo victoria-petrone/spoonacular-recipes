@@ -24,7 +24,7 @@ function Header() {
           About
         </Link>
       </div>
-      <div className="social-network-container">
+      <div className="social-network-container-header">
         <a href="https://github.com/vico-design" target="_blank">
           <i className="ri-github-fill" />
         </a>

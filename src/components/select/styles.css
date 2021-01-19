@@ -62,3 +62,31 @@
 .value-container:hover {
   cursor: pointer;
 }
+
+@media only screen and (min-width: 300px) and (max-width: 700px) {
+  .select-container {
+    margin: 0 5px;
+    width: 35.33%;
+  }
+  .value-container {
+    font-size: 15px;
+    justify-items: baseline;
+    padding: 2px 0px;
+  }
+  .value-container i {
+    font-size: 29px;
+    margin-top: -6px;
+  }
+  .value-container-open {
+    font-size: 16px;
+  }
+  .options-container {
+    padding-top: 5px;
+  }
+  .option-container {
+    padding: 4px 0;
+    height: 20px;
+    text-align: center;
+    font-size: 12px;
+  }
+}
