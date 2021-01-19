@@ -30,9 +30,7 @@
   min-width: 70px;
   font-size: 22px;
 }
-/* .input-button-container-search::placeholder {
-  color: #916338;
-} */
+
 .input-element:focus {
   outline: none;
 }
@@ -75,4 +73,27 @@
   width: 100%;
   position: absolute;
   backdrop-filter: blur(3px);
+}
+
+@media only screen and (min-width: 300px) and (max-width: 700px) {
+  .input-element {
+    height: 30px;
+    font-size: 16px;
+    min-width: unset;
+  }
+  .submit-button {
+    height: 32px;
+    font-size: 16px;
+  }
+  .input-button-container-home {
+    display: flex;
+    justify-content: center;
+  }
+  .input-button-container-search input {
+    width: 65%;
+  }
+  .filters-container {
+    width: 100%;
+    padding: 10px 0;
+  }
 }

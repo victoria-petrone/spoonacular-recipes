@@ -20,3 +20,21 @@
   margin: 40px 0px;
   padding: 20px 62px 62px 62px;
 }
+
+@media only screen and (min-width: 300px) and (max-width: 700px) {
+  .about {
+    width: 80%;
+    padding: 0px;
+  }
+  .about_the_app {
+    padding: 20px;
+  }
+  .about__title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  .about__paragraph {
+    font-size: 14px;
+    padding: 0px;
+  }
+}
