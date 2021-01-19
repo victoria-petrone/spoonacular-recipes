@@ -9,6 +9,7 @@
   font-size: 30px;
   font-weight: bolder;
   margin-bottom: 50px;
+  color: #6d6c6c;
 }
 .about__paragraph {
   font-size: 20px;
@@ -16,7 +17,6 @@
 }
 .about_the_app {
   background-color: #efd4b8;
-  color: #535353;
   margin: 40px 0px;
   padding: 20px 62px 62px 62px;
 }
