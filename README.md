@@ -1,4 +1,4 @@
-#[Demo from the project](https://vico-design.github.io/spoonacular-recipes/)
+# [Demo from the project](https://vico-design.github.io/spoonacular-recipes/)
 
 
 
