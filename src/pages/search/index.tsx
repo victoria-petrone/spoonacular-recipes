@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import {
-  getComplexSearch,
-  getRandomRecipes,
-  IComplexSearchConfig,
-} from "../../services/recipeSearch";
+import { getComplexSearch, getRandomRecipes, IComplexSearchConfig } from "../../services/recipeSearch";
 import RecipeList from "../../components/recipeList";
 import Search from "../../components/search";
 import Pagination from "./../../components/pagination";
@@ -30,15 +26,12 @@ const SearchPage = () => {
     offset: 0,
     number: 20,
   });
-  console.log(config);
+
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
   const [pagination, setPagination] = useState<IPagination>();
 
   const changePage = (action: "previous" | "next") => {
-    const newOffset =
-      action === "next"
-        ? config.offset + config.number
-        : config.offset - config.number;
+    const newOffset = action === "next" ? config.offset + config.number : config.offset - config.number;
     const newConfig = { ...config, offset: newOffset };
     setConfig(newConfig);
     complexSearch(newConfig);
@@ -57,7 +50,6 @@ const SearchPage = () => {
   };
 
   useEffect(() => {
-    console.log("search");
     const newUserInput = searchParams.get("userInput");
     const newFilters = searchParams.get("filters");
 
@@ -81,22 +73,9 @@ const SearchPage = () => {
 
   return (
     <div>
-      <Search
-        config={config}
-        setConfig={setConfig}
-        placeholder="What do you wanna eat?"
-        initialValue={searchParams.get("userInput")}
-        isSearchPage
-      />
+      <Search config={config} setConfig={setConfig} placeholder="What do you wanna eat?" initialValue={searchParams.get("userInput")} isSearchPage />
       <div>{recipes && <RecipeList recipes={recipes} />}</div>
-      {pagination && (
-        <Pagination
-          number={pagination?.number}
-          offset={pagination?.offset}
-          totalResults={pagination?.totalResults}
-          changePage={changePage}
-        />
-      )}
+      {pagination && <Pagination number={pagination?.number} offset={pagination?.offset} totalResults={pagination?.totalResults} changePage={changePage} />}
     </div>
   );
 };
